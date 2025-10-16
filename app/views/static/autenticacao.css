@@ -1,3 +1,10 @@
+/* ======================================================
+   autenticacao.css
+   Estrutura alinhada com cadastro_produto.css
+   Paleta: branco / cinza claro / azul
+   ====================================================== */
+
+/* ====== RESET E TIPOGRAFIA ====== */
 * {
     margin: 0;
     padding: 0;
@@ -5,140 +12,135 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* ====== PÁGINA ====== */
 body {
-    background: linear-gradient(135deg, #002b53 0%, #536f9c 100%);
-    height: 100vh;
+    background: #f3f6fb; /* fundo cinza claro */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    color: #213547;
+}
+
+/* ====== CONTAINER PRINCIPAL ====== */
+.container-login {
+    width: 100%;
+    max-width: 420px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(16,24,40,0.06);
+}
+
+/* ====== CABEÇALHO ====== */
+.header-login {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-}
-
-.container-login {
-    background: white;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 400px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 2px solid transparent;
-    border-color: #e74c3c;
-}
-
-.container-login:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    margin-bottom: 12px;
 }
 
 .titulo-principal {
     text-align: center;
-    margin-bottom: 30px;
-    color: #333;
-    font-size: 28px;
-    font-weight: 600;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    color: #0f2540;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+/* ====== FORMULÁRIO ====== */
+.form-login {
+    display: grid;
+    gap: 12px;
 }
 
 .grupo-input {
-    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
 }
 
 .rotulo {
     display: block;
-    margin-bottom: 8px;
-    color: #555;
-    font-weight: 500;
-    font-size: 14px;
+    margin-bottom: 6px;
+    color: #0f2540;
+    font-weight: 600;
+    font-size: 13px;
 }
 
 .campo-input {
     width: 100%;
-    padding: 15px;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #e6eefb;
+    font-size: 14px;
 }
 
 .campo-input:focus {
     outline: none;
-    border-color: #FF6B35;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 0 0 3px rgba(255, 107, 53, 0.2);
-    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(45,124,255,0.08);
+    border-color: #2d7cff;
 }
 
 .mensagem-erro {
-    color: #e74c3c;
-    font-size: 14px;
-    margin-top: 5px;
-    display: none;
-    font-weight: 500;
+    color: #ef4444;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+/* ====== BOTÕES ====== */
+.acoes-login {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 6px;
 }
 
 .botao-login {
     width: 100%;
-    padding: 16px;
-    background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 600;
+    padding: 10px;
+    border-radius: 8px;
+    border: 0;
+    background: #2d7cff; /* azul primário */
+    color: #fff;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    transition: transform 0.2s;
 }
 
 .botao-login:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 25px rgba(255, 107, 53, 0.5);
-    background: linear-gradient(135deg, #FF8C42 0%, #FF6B35 100%);
+    transform: translateY(-2px);
 }
 
-.botao-login:active {
-    transform: translateY(0);
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
-}
-
-.botao-login:disabled {
-    background: #ccc;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
+/* ====== LINK DE CADASTRO ====== */
 .link-cadastro {
     text-align: center;
-    margin-top: 20px;
-    color: #666;
-    font-size: 14px;
+    margin-top: 10px;
+    color: #556;
 }
 
 .link-cadastro a {
-    color: #FF6B35;
+    color: #2d7cff;
+    font-weight: 700;
     text-decoration: none;
-    font-weight: 600;
 }
 
 .link-cadastro a:hover {
     text-decoration: underline;
+    color: #0f2540;
 }
 
+/* ====== RESPONSIVIDADE ====== */
 @media (max-width: 480px) {
     .container-login {
-        padding: 30px 20px;
-        margin: 20px;
+        padding: 16px;
+        margin: 18px;
     }
-    
+
     .titulo-principal {
-        font-size: 24px;
-    }
-    
-    .campo-input, .botao-login {
-        padding: 14px;
+        font-size: 18px;
     }
 }

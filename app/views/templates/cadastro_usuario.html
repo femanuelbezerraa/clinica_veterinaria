@@ -13,11 +13,11 @@
         {% if error %}
             <p class="mensagem-erro">{{ error }}</p>
         {% endif %}
-        <form method="POST" action="{{ url_for('cadastro_usuario') }}">
+        <form method="POST" action="{{ url_for('cadastro_usuario') }}" class="form-usuario">
             
             <div class="grupo-input">
                 <label for="nome" class="rotulo">Nome:</label>
-                <input type="text" id="nome'" name="nome" class="campo-input" placeholder="Insira seu nome" required>
+                <input type="text" id="nome" name="nome" class="campo-input" placeholder="Insira seu nome" required>
             </div>
 
             <div class="grupo-input">

@@ -48,7 +48,13 @@ def execute_db(query, args=()):
     db.commit()
     last_id = None
     if cur.description:
-        last_id = cur.fetchall()[0]
+        # Se a query retornou uma linha (ex: INSERT ... RETURNING id_produto)
+        row = cur.fetchone()
+        if row:
+            # retorne o primeiro campo como valor escalar
+            last_id = row[0]
+        else:
+            last_id = None
     else:
         last_id = None
     cur.close()

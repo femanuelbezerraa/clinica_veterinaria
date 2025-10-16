@@ -1,0 +1,181 @@
+/* Reset + Fonte */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fundo */
+body {
+  background: #f3f6fb; /* fundo cinza claro */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  color: #213547; /* texto escuro azulado */
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* HEADER */
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 22px;
+  color: #333;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #2d7cff; /* link azul */
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.nav-links a:hover { color: #0f2540; }
+
+/* Título */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* Formulário */
+.form-produto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px 25px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.input-group label {
+  display: block;
+  color: #002b53;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.input-group input:focus {
+  border-color: #FF6B35;
+  outline: none;
+}
+
+.form-buttons {
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn.cadastrar {
+  background: #2d7cff; /* botão primário azul */
+  color: #fff;
+}
+
+.btn.voltar { background: #eef6ff; color: #0f2540; }
+
+/* Tabela */
+.tabela-wrapper { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+/* Cabeçalho */
+thead th {
+  background: #eef6ff; /* cabeçalho em azul muito claro */
+  color: #0f2540;
+  padding: 14px;
+  font-size: 15px;
+  text-align: center;
+}
+
+/* Corpo da tabela */
+tbody td {
+  border: 1px solid #f1f6fb;
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+  color: #213547;
+}
+
+/* Linhas alternadas */
+tbody tr:nth-child(even) { background-color: #fbfdff; }
+
+/* Nenhum dado */
+tbody tr td[colspan] {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+  font-style: italic;
+}
+
+/* Hover nas linhas */
+tbody tr:hover { background-color: #f1f1f1; transition: 0.3s; }
+
+/* Ações */
+.acoes { display: flex; gap: 8px; justify-content: center; align-items: center; }
+.qtd-input { width: 64px; padding: 6px; border-radius: 6px; border: 1px solid #e6eefb; }
+
+.btn.editar { background: #2d7cff; color: #fff; }
+.btn.remover { background: #0f2540; color: #fff; }
+.btn.adicionar { background: #2d7cff; color: #fff; }
+.btn.retirar { background: #2d7cff; color: #fff; }
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .form-produto { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+  .form-buttons { grid-column: 1 / -1; }
+}

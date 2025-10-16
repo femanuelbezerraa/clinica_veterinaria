@@ -11,9 +11,10 @@ def login():
             return render_template('autenticacao.html', erro='Usuário inexistente')
 
         if check_password_hash(Usuario.buscar_por_email(email)['senha'], senha):
-            session['usuario_id'] = Usuario.buscar_por_email(email)['id']
+            session['usuario_id'] = Usuario.buscar_por_email(email)['id_usuario']
             session['usuario_nome'] = Usuario.buscar_por_email(email)['nome']
-            return redirect(url_for('produto.cadastro_produto'))
+            return redirect(url_for('cadastro_produto'))
+
         else:
             return render_template('autenticacao.html', erro='Senha incorreta')
 
@@ -22,16 +23,16 @@ def login():
 
 def cadastro_usuario():
     if request.method == 'POST':
-        nome = request.form['nome']
-        email = request.form['email']
-        senha = request.form['senha']
+        nome = request.form.get('nome')
+        email = request.form.get('email')
+        senha = request.form.get('senha')
 
         if Usuario.buscar_por_email(email):
             return render_template('cadastro_usuario.html', erro='E-mail já cadastrado')
 
         senha_hash = generate_password_hash(senha)
         Usuario.criar(nome, email, senha_hash)
-        return redirect(url_for('usuario.login'))
+        return redirect(url_for('login'))
 
     return render_template('cadastro_usuario.html')
 
@@ -39,6 +40,7 @@ def cadastro_usuario():
 def logout():
     session.pop('usuario_id', None)
     session.pop('usuario_nome', None)
-    return redirect(url_for('usuario.login'))
+    return redirect(url_for('login'))
+
 
 

@@ -4,24 +4,24 @@ class Movimentacao:
     @staticmethod
     def registrar_entrada(produto_id, quantidade, usuario_id):
         execute_db(
-            'INSERT INTO movimentacao_estoque (produto_id, tipo_movimentacao, quantidade, usuario_id) VALUES (%s,%s,%s,%s)',
-            (produto_id, 'entrada', quantidade, usuario_id)
+            'INSERT INTO movimentacao (produto_id, tipo_movimentacao, quantidade, usuario_id, data_movimentacao) VALUES (%s,%s,%s,%s, NOW())',
+            (produto_id, 'Entrada', quantidade, usuario_id)
         )
 
     @staticmethod
     def registrar_saida(produto_id, quantidade, usuario_id):
         execute_db(
-            'INSERT INTO movimentacao_estoque (produto_id, tipo_movimentacao, quantidade, usuario_id) VALUES (%s,%s,%s,%s)',
-            (produto_id, 'saida', quantidade, usuario_id)
+            'INSERT INTO movimentacao (produto_id, tipo_movimentacao, quantidade, usuario_id, data_movimentacao) VALUES (%s,%s,%s,%s, NOW())',
+            (produto_id, 'Saida', quantidade, usuario_id)
         )
 
     @staticmethod
     def listar_todas():
         return query_db('''
-            SELECT m.id, m.produto_id, p.nome AS nome_produto, m.tipo_movimentacao, m.quantidade, m.data_movimentacao, u.nome AS usuario_nome
-            FROM movimentacao_estoque AS m
-            JOIN produtos AS p ON m.produto_id = p.id
-            JOIN usuarios AS u ON m.usuario_id = u.id
+            SELECT m.id_movimentacao AS id, m.produto_id, p.nome AS nome_produto, m.tipo_movimentacao, m.quantidade, m.data_movimentacao, u.nome AS usuario_nome
+            FROM movimentacao AS m
+            JOIN produto AS p ON m.produto_id = p.id_produto
+            JOIN usuario AS u ON m.usuario_id = u.id_usuario
             ORDER BY m.data_movimentacao DESC
         ''')
 

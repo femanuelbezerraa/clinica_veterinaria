@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Editar Produto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='editar_produto.css') }}">
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <h1>Editar Produto</h1>
+        <a href="{{ url_for('cadastro_produto') }}" class="btn voltar">Voltar</a>
+    </header>
+
+    <form method="POST" class="form-produto">
+        <div class="input-group">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" value="{{ produto.nome }}" required>
+        </div>
+
+        <div class="input-group">
+            <label for="descricao">Descrição</label>
+            <input id="descricao" name="descricao" value="{{ produto.descricao }}">
+        </div>
+
+        <div class="input-group">
+            <label for="preco">Preço</label>
+            <input id="preco" name="preco" type="number" step="0.01" value="{{ produto.preco }}">
+        </div>
+
+        <div class="input-group">
+            <label for="quantidade_min">Qtd mínima</label>
+            <input id="quantidade_min" name="quantidade_min" type="number" value="{{ produto.quantidade_min }}">
+        </div>
+
+        <div class="input-group">
+            <label for="tipo">Tipo</label>
+            <select id="tipo" name="tipo">
+                <option value="comprimido" {% if produto.tipo == 'comprimido' %}selected{% endif %}>Comprimido</option>
+                <option value="alimento" {% if produto.tipo == 'alimento' %}selected{% endif %}>Alimento</option>
+                <option value="gota" {% if produto.tipo == 'gota' %}selected{% endif %}>Em gotas</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="especie">Espécie</label>
+            <input id="especie" name="especie" value="{{ produto.especie }}">
+        </div>
+
+        <div class="input-group">
+            <label for="dosagem">Dosagem</label>
+            <input id="dosagem" name="dosagem" value="{{ produto.dosagem }}">
+        </div>
+
+        <div class="input-group">
+            <label for="validade">Validade</label>
+            <input id="validade" type="date" name="validade" value="{{ produto.validade }}">
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit" class="btn cadastrar">Salvar</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
