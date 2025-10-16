@@ -25,7 +25,7 @@
         <h2>Cadastrar Produto</h2>
         <form action="{{ url_for('cadastro_produto') }}" method="POST" class="form-produto">
             <div class="input-group">
-                <label for="nome">Nome:</label>
+                <label for="nome">Nome do Remédio:</label>
                 <input type="text" id="nome" name="nome" required>
             </div>
 
@@ -50,22 +50,26 @@
             </div>
 
             <div class="input-group">
-                <label for="tipo">Tipo:</label>
-                <input type="text" id="tipo" name="tipo">
+                <label for="tipo">Tipo do Remédio:</label>
+                <select id="tipo" name="tipo">
+                    <option value="alimento" selected>Alimento</option>
+                    <option value="comprimido">Comprimido</option>
+                    <option value="gota">Em gotas</option>
+                </select>
             </div>
 
             <div class="input-group">
-                <label for="especie">Espécie:</label>
+                <label for="especie">Espécie do Animal:</label>
                 <input type="text" id="especie" name="especie">
             </div>
 
             <div class="input-group">
-                <label for="dosagem">Dosagem:</label>
+                <label for="dosagem">Dosagem do Remédio:</label>
                 <input type="text" id="dosagem" name="dosagem">
             </div>
 
             <div class="input-group">
-                <label for="validade">Validade:</label>
+                <label for="validade">Validade do Remédio:</label>
                 <input type="date" id="validade" name="validade">
             </div>
 
