@@ -1,23 +1,25 @@
-from flask import render_template, request, redirect, url_for, session
+from flask import render_template, request, redirect, url_for, session, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from app.models.usuario import Usuario
+from app import app
 
 def login():
     if request.method == 'POST':
         email = request.form['email']
         senha = request.form['senha']
 
-        if not Usuario.buscar_por_email(email):
-            return render_template('autenticacao.html', erro='Usuário inexistente')
+        usuario = Usuario.buscar_por_email(email)
+        if not usuario:
+            return render_template('autenticacao.html', erro=True)
 
-        if check_password_hash(Usuario.buscar_por_email(email)['senha'], senha):
-            session['usuario_id'] = Usuario.buscar_por_email(email)['id_usuario']
-            session['usuario_nome'] = Usuario.buscar_por_email(email)['nome']
-            return redirect(url_for('cadastro_produto'))
-
+        if check_password_hash(usuario['senha'], senha):
+            session['usuario'] = usuario['id_usuario']
+            session['usuario_nome'] = usuario.get('nome')
+            return redirect(url_for('tela_principal'))
         else:
-            return render_template('autenticacao.html', erro='Senha incorreta')
-
+            flash('Usuário ou senha incorretos', 'error')
+            return render_template('autenticacao.html', erro=True)
+    
     return render_template('autenticacao.html')
 
 
@@ -38,7 +40,7 @@ def cadastro_usuario():
 
 
 def logout():
-    session.pop('usuario_id', None)
+    session.pop('usuario', None)
     session.pop('usuario_nome', None)
     return redirect(url_for('login'))
 

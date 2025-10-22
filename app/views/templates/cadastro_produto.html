@@ -12,7 +12,7 @@
             <h1>Olá, {{ usuario }}</h1>
             <nav class="nav-links">
                 <a href="{{ url_for('historico_estoque') }}" class="btn-link">Movimentação de Estoque</a>
-                <a href="{{ url_for('logout') }}" class="btn-link sair">Sair</a>
+                <a href="{{ url_for('tela_principal') }}" class="btn-link sair">Tela principal</a>
             </nav>
         </header>
         {% if error %}
@@ -75,12 +75,12 @@
 
             <div class="form-buttons">
                 <button type="submit" class="btn cadastrar">Cadastrar</button>
-                <a href="{{ url_for('historico_estoque') }}" class="btn voltar">Voltar</a>
+                <a href="{{ url_for('tela_principal') }}" class="btn voltar">Voltar</a>
             </div>
         </form>
     </section>
 
-    <!-- Listagem -->
+
     <section class="lista-container">
         <h3>Lista de Produtos</h3>
         <div class="tabela-wrapper">
